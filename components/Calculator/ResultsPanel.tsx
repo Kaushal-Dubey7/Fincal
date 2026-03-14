@@ -37,7 +37,7 @@ function useAnimatedNumber(value: number, duration = 700) {
     frame = requestAnimationFrame(animate);
 
     return () => cancelAnimationFrame(frame);
-  }, [value]);
+  }, [animated, duration, value]);
 
   return animated;
 }
@@ -110,7 +110,15 @@ export default function ResultsPanel({ result }: Props) {
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="name" />
               <YAxis />
-              <Tooltip formatter={(value: number) => `₹${Number(value).toLocaleString()}`} />
+              <Tooltip
+                formatter={(value) =>
+                  typeof value === "number"
+                    ? `₹${value.toLocaleString()}`
+                    : value == null
+                    ? ""
+                    : `${value}`
+                }
+              />
               <Bar dataKey="amount">
                 {barData.map((entry, index) => (
                   <Cell key={`bar-${index}`} fill={index === 2 ? "#224c87" : index === 0 ? "#919090" : "#da3832"} />

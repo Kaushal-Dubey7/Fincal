@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import { Montserrat } from "next/font/google";
 import { calculateSWP } from "@/lib/calculations";
 import { validateSWP } from "@/lib/validators";
@@ -17,7 +17,6 @@ const defaultSwp: SWPInputValues = {
 
 export default function SWPCalculator() {
   const [inputs, setInputs] = useState(defaultSwp);
-  const [showAssumptions, setShowAssumptions] = useState(true);
 
   const errors = useMemo(() => validateSWP(inputs), [inputs]);
   const isInvalid = Object.keys(errors).length > 0;
@@ -50,19 +49,23 @@ export default function SWPCalculator() {
                   min={field.min}
                   max={field.max}
                   step={field.step}
-                  value={(inputs as any)[field.name]}
-                  onChange={(e) => setInputs({ ...inputs, [field.name]: Number(e.target.value) })}
+                  value={inputs[field.name as keyof SWPInputValues]}
+                  onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                    setInputs({ ...inputs, [field.name]: Number(e.target.value) })
+                  }
                   className="w-full"
                   aria-label={field.label}
                 />
                 <div className="flex items-center gap-2">
                   <input
                     type="number"
-                    value={(inputs as any)[field.name]}
+                    value={inputs[field.name as keyof SWPInputValues]}
                     min={field.min}
                     max={field.max}
                     step={field.step}
-                    onChange={(e) => setInputs({ ...inputs, [field.name]: Number(e.target.value) })}
+                    onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                      setInputs({ ...inputs, [field.name]: Number(e.target.value) })
+                    }
                     className="border border-[#c0c0c0] rounded px-2 py-1 w-full focus:outline-none focus:ring-2 focus:ring-[#224c87]"
                   />
                   <span className="text-xs text-[#666]">{field.name === "annualReturn" ? "%" : ""}</span>
