@@ -9,8 +9,8 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "FinCal Innovation Hackathon - SIP Calculator",
-  description: "Interactive, accessible SIP calculation demo for Technex'26",
+  title: "FinCal Calculator Hub",
+  description: "Interactive, accessible calculator app for Technex'26",
 };
 
 export default function RootLayout({

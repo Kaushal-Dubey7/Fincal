@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <main className={`${montserrat.className} min-h-screen bg-[#f5f7fa] text-[#1b1b1b] p-4 sm:p-10`}>
       <section className="mx-auto max-w-4xl rounded-lg border border-[#d8d8d8] bg-white p-6 shadow-sm">
-        <h1 className="text-3xl font-bold text-[#224c87]">FinCal Innovation Hackathon</h1>
-        <p className="mt-2 text-[#555]">Choose a calculator to begin. All inputs are live and accessible.</p>
+        <h1 className="text-3xl font-bold text-[#224c87]">FinCal Calculator Hub</h1>
+        <p className="mt-2 text-[#555]">Choose a calculator to begin. Live, intuitive, and accessible.</p>
 
         <ul className="mt-5 grid gap-3 sm:grid-cols-2">
           <li>

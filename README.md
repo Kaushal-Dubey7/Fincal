@@ -1,4 +1,4 @@
-# fincal-hackathon
+# FinCal Calculator Hub
 
 A Next.js app built for Technex'26 FinCal Innovation Hackathon (HDFC Mutual Fund). 
 
