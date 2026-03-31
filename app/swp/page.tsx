@@ -66,7 +66,7 @@ export default function SWPCalculator() {
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                       setInputs({ ...inputs, [field.name]: Number(e.target.value) })
                     }
-                    className="border border-[#c0c0c0] rounded px-2 py-1 w-full focus:outline-none focus:ring-2 focus:ring-[#224c87]"
+                    className="border border-[#c0c0c0] text-black rounded px-2 py-1 w-full focus:outline-none focus:ring-2 focus:ring-[#224c87]"
                   />
                   <span className="text-xs text-[#666]">{field.name === "annualReturn" ? "%" : ""}</span>
                 </div>
